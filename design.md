@@ -1,17 +1,25 @@
-# Design Document: Medical Chatbot Assistant
+# Design Document: Medical Chatbot Assistant with Doctor-Patient Matching Platform
 
 ## Overview
 
-The Medical Chatbot Assistant is a web-based conversational AI system that helps patients understand medical information through natural language interactions. The system leverages the Gemini API for natural language understanding and generation, combined with a curated medical knowledge base to provide accurate, accessible health information.
+The Medical Chatbot Assistant is a comprehensive web-based healthcare platform that combines conversational AI with a doctor-patient matching service. The system helps patients understand medical information through natural language interactions while also connecting them with appropriate medical professionals based on their needs, location, and preferences.
 
-The architecture follows a layered approach with clear separation between the presentation layer (web interface), application layer (chatbot logic and orchestration), integration layer (Gemini API and knowledge base), and data layer (patient data and conversation history). This design ensures maintainability, testability, and the ability to swap components as needed.
+The platform consists of two integrated subsystems:
+
+1. **Conversational AI Assistant**: Leverages the Gemini API for natural language understanding and generation, combined with a curated medical knowledge base to provide accurate, accessible health information, medication management, and care navigation.
+
+2. **Doctor-Patient Matching Platform**: Enables medical professionals to register their practices and allows patients to search, filter, and discover healthcare providers based on specialty, location, ratings, and other criteria. The platform includes a comprehensive rating system where patients can evaluate providers on multiple dimensions.
+
+The architecture follows a layered approach with clear separation between the presentation layer (web interface), application layer (chatbot logic, matching engine, and orchestration), integration layer (Gemini API and knowledge base), and data layer (patient data, provider profiles, ratings, and conversation history). This design ensures maintainability, testability, and the ability to swap components as needed.
 
 Key design principles:
 - **Safety First**: All responses prioritize patient safety with appropriate disclaimers and emergency detection
 - **Medical Accuracy**: Information is validated against trusted medical knowledge bases
-- **Privacy by Design**: Patient data is encrypted and access is strictly controlled
+- **Privacy by Design**: Patient and provider data is encrypted and access is strictly controlled
 - **Accessibility**: Interface meets WCAG 2.1 Level AA standards
 - **Graceful Degradation**: System remains functional even when external services are unavailable
+- **Scalability**: Search and matching algorithms designed to handle large provider databases efficiently
+- **User-Friendliness**: Intuitive interfaces for both patients seeking care and providers managing profiles
 
 ## Architecture
 
@@ -896,3 +904,4 @@ describe('Care Navigator', () => {
 - Maintain curated set of medical terms, conditions, and medications for testing
 - Generate realistic conversation scenarios for context testing
 - Create test cases for known emergency symptoms and medication interactions
+
